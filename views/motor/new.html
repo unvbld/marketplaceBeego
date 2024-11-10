@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="p-8">
+  <h1 class="text-2xl mb-4">Tambah Motor Bekas</h1>
+  <form action="/motor" method="POST">
+    <label>Brand:</label><input type="text" name="brand" class="border p-2 mb-4 w-full">
+    <label>Model:</label><input type="text" name="model" class="border p-2 mb-4 w-full">
+    <label>Year:</label><input type="number" name="year" class="border p-2 mb-4 w-full">
+    <label>Price:</label><input type="text" name="price" class="border p-2 mb-4 w-full">
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan</button>
+</form>
+
+</body>
+</html>

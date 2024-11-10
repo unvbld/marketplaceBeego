@@ -1,0 +1,13 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  table {
+    margin-top: 16px;
+  }
+  
+  form label {
+    font-weight: bold;
+  }
+  
