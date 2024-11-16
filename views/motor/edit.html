@@ -8,7 +8,7 @@
 </head>
 <body class="p-8 bg-gray-50">
   <h1 class="text-3xl font-bold mb-6">Edit Motor Bekas</h1>
-  <form action="/motor/update" method="post" enctype="multipart/form-data" class="space-y-4">
+  <form action="/motor/update/{{.Motor.Id}}" method="post" enctype="multipart/form-data" class="space-y-4">
     <input type="hidden" name="id" value="{{.Motor.Id}}" />
     <div>
       <label for="brand" class="block text-lg">Brand</label>
@@ -35,6 +35,6 @@
     </div>
     <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded w-full">Simpan Perubahan</button>
   </form>
-  <a href="/dashboard" class="text-blue-500 mt-4 inline-block">Kembali ke Dashboard</a>
+  <a href="/motor" class="text-blue-500 mt-4 inline-block">Kembali ke Dashboard</a>
 </body>
 </html>

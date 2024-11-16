@@ -72,7 +72,7 @@ func (c *MotorController) EditMotor() {
 	c.TplName = "motor/edit.html"
 }
 
-// Update motor (with image update)
+// / Update motor (with image update)
 func (c *MotorController) UpdateMotor() {
 	id, _ := strconv.Atoi(c.Ctx.Input.Param(":id"))
 	o := orm.NewOrm()
@@ -105,6 +105,9 @@ func (c *MotorController) UpdateMotor() {
 				return
 			}
 			motor.Image = imagePath // Update the image path in the database
+		} else if motor.Image == "" {
+			// If no new image and no old image is set, ensure Image is set to an empty string
+			motor.Image = ""
 		}
 
 		o.Update(&motor)
