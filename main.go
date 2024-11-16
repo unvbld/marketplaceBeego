@@ -28,12 +28,12 @@ func init() {
 }
 
 func main() {
-	web.Router("/", &controllers.MotorController{}, "get:GetAllMotors")
-	web.Router("/motors", &controllers.MotorController{}, "get:GetAllMotors")
-	web.Router("/motors/new", &controllers.MotorController{}, "get:NewMotor")
-	web.Router("/motors", &controllers.MotorController{}, "post:CreateMotor")
-	web.Router("/motors/edit/:id", &controllers.MotorController{}, "get:EditMotor")
-	web.Router("/motors/edit/:id", &controllers.MotorController{}, "post:UpdateMotor")
-	web.Router("/motors/delete/:id", &controllers.MotorController{}, "get:DeleteMotor")
+	web.Router("/", &controllers.MotorController{}, "get:GetAllMotor")
+	web.Router("/motor", &controllers.MotorController{}, "get:GetAllMotor")
+	web.Router("/motor/new", &controllers.MotorController{}, "get:NewMotor")
+	web.Router("/motor", &controllers.MotorController{}, "post:CreateMotor")
+	web.Router("/motor/edit/:id", &controllers.MotorController{}, "get:EditMotor")
+	web.Router("/motor/edit/:id", &controllers.MotorController{}, "post:UpdateMotor")
+	web.Router("/motor/delete/:id", &controllers.MotorController{}, "get:DeleteMotor")
 	web.Run()
 }

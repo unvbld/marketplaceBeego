@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Marketplace Motor Bekas</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="p-8 bg-gray-50">
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold mb-2">Dashboard Penjual</h1>
+    <a href="/motor/new" class="bg-green-500 text-white px-4 py-2 rounded">Tambah Motor</a>
+    <a href="/logout" class="bg-red-500 text-white px-4 py-2 rounded ml-4">Logout</a>
+  </header>
+  <section>
+    <h2 class="text-2xl font-semibold mb-4">Motor Anda</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {{range .Motors}}
+      <div class="bg-white shadow-md rounded-lg p-4">
+        <img src="{{if .Image}}{{.Image}}{{else}}/static/images/placeholder.png{{end}}" alt="{{.Brand}} {{.Model}}" class="w-full h-40 object-cover rounded mb-4">
+        <h3 class="text-xl font-bold">{{.Brand}} {{.Model}}</h3>
+        <p class="text-gray-600">Tahun: {{.Year}}</p>
+        <p class="text-gray-600">Harga: Rp {{printf "%.0f" .Price}}</p>
+        <div class="flex justify-between mt-4">
+          <a href="/motor/edit/{{.Id}}" class="text-blue-500">Edit</a>
+          <form action="/motor/delete/{{.Id}}" method="post" class="inline">
+            <button type="submit" class="text-red-500">Hapus</button>
+          </form>
+        </div>
+      </div>
+      {{else}}
+      <p class="col-span-3">Anda belum menambahkan motor. <a href="/motor/new" class="text-blue-500">Tambah Motor Sekarang</a></p>
+      {{end}}
+    </div>
+  </section>
+</body>
+</html>

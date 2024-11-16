@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Motor - Marketplace Motor Bekas</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="p-8 bg-gray-50">
+  <h1 class="text-3xl font-bold mb-6">Edit Motor Bekas</h1>
+  <form action="/motor/update" method="post" enctype="multipart/form-data" class="space-y-4">
+    <input type="hidden" name="id" value="{{.Motor.Id}}" />
+    <div>
+      <label for="brand" class="block text-lg">Brand</label>
+      <input type="text" id="brand" name="brand" class="w-full p-2 border rounded" placeholder="Brand" value="{{.Motor.Brand}}" required />
+    </div>
+    <div>
+      <label for="model" class="block text-lg">Model</label>
+      <input type="text" id="model" name="model" class="w-full p-2 border rounded" placeholder="Model" value="{{.Motor.Model}}" required />
+    </div>
+    <div>
+      <label for="year" class="block text-lg">Tahun</label>
+      <input type="number" id="year" name="year" class="w-full p-2 border rounded" placeholder="Tahun" value="{{.Motor.Year}}" required />
+    </div>
+    <div>
+      <label for="price" class="block text-lg">Harga (Rp)</label>
+      <input type="number" id="price" name="price" class="w-full p-2 border rounded" placeholder="Harga" value="{{.Motor.Price}}" required />
+    </div>
+    <div>
+      <label for="image" class="block text-lg">Gambar Motor</label>
+      <input type="file" id="image" name="image" class="w-full p-2 border rounded" />
+      {{if .Motor.Image}}
+      <img src="{{.Motor.Image}}" alt="Motor Image" class="mt-2 h-40 w-full object-cover" />
+      {{end}}
+    </div>
+    <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded w-full">Simpan Perubahan</button>
+  </form>
+  <a href="/dashboard" class="text-blue-500 mt-4 inline-block">Kembali ke Dashboard</a>
+</body>
+</html>
